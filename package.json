@@ -4,7 +4,14 @@
   "description": "Node.js project for training with Nunjucks",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -16,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/maciejmodzelewski/nunjucks-training-app/issues"
   },
-  "homepage": "https://github.com/maciejmodzelewski/nunjucks-training-app#readme"
+  "homepage": "https://github.com/maciejmodzelewski/nunjucks-training-app#readme",
+  "devDependencies": {
+    "gts": "^5.2.0",
+    "typescript": "~5.2.0",
+    "@types/node": "20.8.2"
+  }
 }
