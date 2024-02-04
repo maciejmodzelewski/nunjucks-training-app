@@ -1,26 +1,15 @@
-console.log("Try npm run lint/fix!");
+import express, {Express, Request, Response} from 'express';
+import dotenv from 'dotenv';
 
-const longString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut aliquet diam.';
+dotenv.config();
 
-const trailing = 'Semicolon'
+const app: Express = express();
+const port = process.env.PORT || 3000;
 
-			const why={am:'I tabbed?'};
+app.get('/', (req: Request, res: Response) => {
+  res.send('Express + TypeScript Server');
+});
 
-const iWish = "I didn't have a trailing space..."; 
-
-const sicilian = true;;
-
-const vizzini = (!!sicilian) ? !!!sicilian : sicilian;
-
-const re = /foo   bar/;
-
-export function doSomeStuff(withThis: string, andThat: string, andThose: string[]) {
-    //function on one line
-    if(!Boolean(andThose.length)) {return false;}
-    console.log(withThis);
-    console.log(andThat);
-    console.dir(andThose);
-    console.log(longString, trailing, why, iWish, vizzini, re);
-    return;
-}
-// TODO: more examples
+app.listen(port, () => {
+  console.log(`[server]: Server is running at http://localhost:${port}`);
+});
