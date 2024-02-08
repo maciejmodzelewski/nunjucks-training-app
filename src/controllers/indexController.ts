@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
 
-module.exports = (req: Request, res: Response) => {
-    res.render("index", {headerText: "This is index page."});
+export const indexController = (req: Request, res: Response) => {
+    res.render("index", {headerText: "Hello World!", titleText: "Home page"});
 };

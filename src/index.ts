@@ -1,9 +1,8 @@
-import express, {Express, Request, Response} from 'express';
+import express, {Express} from 'express';
 import nunjucks from 'nunjucks';
 import dotenv from 'dotenv';
 import path from 'path';
-
-const index = require('./controllers/indexController');
+import {indexController} from './controllers/indexController';
 
 dotenv.config();
 
@@ -26,7 +25,7 @@ const nunjucksEnvironment = new nunjucks.Environment(nunjuckLoader, nunjuckLoade
 nunjucksEnvironment.express(app);
 app.set("view engine", "njk");
 
-app.get('/', index);
+app.get('/', indexController);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
