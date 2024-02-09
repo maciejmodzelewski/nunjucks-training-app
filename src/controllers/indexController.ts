@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
 
 export const indexController = (req: Request, res: Response) => {
-    res.render("index", {headerText: "Hello World!", titleText: "Home page"});
+    res.render("main_content/home", { headerText: "Hello World!", titleText: "Home page" });
 };
