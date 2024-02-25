@@ -4,9 +4,15 @@
   {% include "partials/head.njk" %}
 
   <body>
-    <main>
+    {% include "partials/header.njk" %}
+
+    {% include "partials/navbar.njk" %}
+
+    <main class="main">
       {% block mainContent %}{% endblock %}
     </main>
+    
+    {% include "partials/footer.njk" %}
   </body>
 
 </html>

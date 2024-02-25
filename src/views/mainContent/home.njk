@@ -1,5 +1,13 @@
 {% extends "layouts/index.njk" %}
 
+{% if weekDay === "Friday" %}
+  {% set greetingText = "It's almost the weekend." %}
+{% elif weekDay === "Saturday" or weekDay === "Sunday" %}
+  {% set greetingText = "Enjoy your weekend break." %}
+{% else %}
+  {% set greetingText = "It's just another working day."%}
+{% endif %}
+
 {% block mainContent %}
-    <h1>{{ headerText }}</h1>
+    <p>Today is {{ weekDay }}. {{ greetingText }}</p>
 {% endblock %}
