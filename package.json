@@ -8,7 +8,7 @@
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
-    "build": "npm run clean && npm run compile && cp -r src/views build/src/views",
+    "build": "npm run clean && npm run compile && cp -r src/views build/src/views && cp -r public build/public",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",

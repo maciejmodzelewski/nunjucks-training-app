@@ -22,9 +22,12 @@ const nunjucksEnvironment = new nunjucks.Environment(
   nunjuckLoader,
   nunjuckLoaderOptions
 );
+nunjucksEnvironment.addGlobal('titleMainText', 'My Website');
 
 nunjucksEnvironment.express(app);
 app.set('view engine', 'njk');
+
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', indexController);
 

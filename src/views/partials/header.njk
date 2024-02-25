@@ -1,0 +1,9 @@
+{% set headerLink %}
+    <a href="{{ headerHref }}">{{ headerText }}</a>
+{% endset %}
+
+<header>
+    <h1 class="{{ "weekend-header" if weekDay === "Saturday" or weekDay === "Sunday" else "header" }}">
+        {{ headerLink | safe }}
+    </h1>
+</header>
