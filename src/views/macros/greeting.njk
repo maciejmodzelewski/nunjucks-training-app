@@ -1,0 +1,9 @@
+{% macro greeting(weekDay) %}
+    {% if weekDay === "Friday" %}
+        <span>It's almost the weekend.</span>
+    {% elif weekDay === "Saturday" or weekDay === "Sunday" %}
+        <span>Enjoy your weekend break.</span>
+    {% else %}
+        <span>It's just another working day.</span>
+    {% endif %}
+{% endmacro%}

@@ -1,13 +1,9 @@
+{% from "macros/link.njk" import link %}
+{% from "macros/greeting.njk" import greeting %}
 {% extends "layouts/index.njk" %}
 
-{% if weekDay === "Friday" %}
-  {% set greetingText = "It's almost the weekend." %}
-{% elif weekDay === "Saturday" or weekDay === "Sunday" %}
-  {% set greetingText = "Enjoy your weekend break." %}
-{% else %}
-  {% set greetingText = "It's just another working day."%}
-{% endif %}
+{% set greetingText = greeting(weekDay) %}
 
 {% block mainContent %}
-    <p>Today is {{ weekDay }}. {{ greetingText }}</p>
+    <p>Today is {{ weekDay }}. {{ greeting(weekDay) }}</p>
 {% endblock %}

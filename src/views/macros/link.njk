@@ -1,0 +1,14 @@
+{% macro link(url, text, targetValue = "_blank", routeParams=null, queryParams=null) %}
+    {% if routeParams %}
+        {% for key, value in routeParams %}
+            {% set url = url | replace(":" + key, value) %}
+        {% endfor %}
+    {% endif %}
+    {% if queryParams %}
+        {% for key, value in queryParams %}
+            {% set operator = "?" if loop.first else "&" %}
+            {% set url = url + operator + key + "=" + value | replace(" ", "+") %}
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url }}" target="{{ targetValue }}" rel="noopener noreferrer">{{ text }}</a>
+{% endmacro %}

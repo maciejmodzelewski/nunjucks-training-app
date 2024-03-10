@@ -1,7 +1,9 @@
+{% from "macros/link.njk" import link %}
+
 <nav class="navbar">
     <ul>
         {% for key, value in menu %}
-            <li><a href="{{ value }}">{{ key }}</a></li>
+            <li>{{ link(value, key) }}</li>
         {% endfor %}
     </ul>
 </nav>

@@ -1,6 +1,6 @@
-{% set headerLink %}
-    <a href="{{ headerHref }}">{{ headerText }}</a>
-{% endset %}
+{% from "macros/link.njk" import link %}
+
+{% set headerLink = link(headerHref, headerText) %}
 
 <header>
     <h1 class="{{ "weekend-header" if weekDay === "Saturday" or weekDay === "Sunday" else "header" }}">

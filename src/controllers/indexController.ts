@@ -1,7 +1,8 @@
 import {Request, Response} from 'express';
 
 export const indexController = (req: Request, res: Response) => {
-  const weekDay = new Date().toLocaleString('en-us', {weekday: 'long'});
+  const sanitizeUrl = require('@braintree/sanitize-url').sanitizeUrl;
+  const weekDay = new Date().toLocaleString('en-gb', {weekday: 'long'});
   const menu: Map<string, string> = new Map();
   menu.set('Home', '/');
   menu.set('Texts', '/texts');
@@ -12,6 +13,9 @@ export const indexController = (req: Request, res: Response) => {
     headerText: 'Hello World!',
     headerHref: '/',
     weekDay: weekDay,
+    weekDayUrl: 'https://en.wikipedia.org/wiki/:weekDay',
+    weekDayUrlParams: {weekDay: weekDay},
     menu: menu,
+    target: '_parent',
   });
 };
